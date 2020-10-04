@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 
 let article_route = require('./routes/article.route');
 let node_route = require('./routes/node-articles.route');
+let student_route = require('./routes/student.route');
+let js_route = require('./routes/javascript-articles.route');
 
 //THIS IS WHERE YOU ARE CREATING A MONGOOSE CONNECTION STRING
 const connection_string = config.database.buildConnectionString();
@@ -43,6 +45,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/articles', article_route);
 app.use('/nodearticles', node_route);
+app.use('/students', student_route);
+app.use('/jsarticles', js_route);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
